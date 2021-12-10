@@ -2,24 +2,27 @@
 // 11/23/21
 // A program that runs a stock market simulation by betting the amount the user inputs for 4 different traders.
 // Each trader has a different name and success rate, but starts off with the same amount of money (1000 dollars)
-// CLEAN VERSION OF STOCKMARKET.JAVA!!!
 
 // import scanner class
 import java.util.Scanner;
 
 // A "casino" class
-public class StockMarketCleanVersion {
+public class StockMarket {
 
     public static void main(String Args[]) {
 
-        // create 4 instances of the trader class, each one representing a different trade
-        Trader[] traders = {new Trader("Trader1"), new Trader("Trader2"), new Trader("Trader3"), new Trader("Trader4")};
+        // Create an array of traders
+        Trader[] traders = new Trader[4];
         
         // create an array to store each trader's stockChangePercentage
         double[] stockChangePercentages = {0.61, 0.19, 0.81, 0.42};
         
         // loop through every item in both traders and stockExchangePercentages
         for (int i = 0; i < traders.length; ++i) {
+            
+            // add a new Trader in every position of the traders array
+            traders[i] = new Trader("Trader" + (i + 1)); // Name is the index + 1 because the index starts from zero
+            
             // set stock change percentage (stockChangePercentage) for each player with the values in stockChangePercentages
             traders[i].setStockChangePercentage(stockChangePercentages[i]);
             
